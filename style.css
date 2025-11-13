@@ -1,0 +1,321 @@
+body {
+    font-family: "MS PGothic", sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80");
+    /* 背景画像もローカル化したい場合は↓のように変更
+       background-image: url('config/images/background.jpg');
+    */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#quiz-container {
+    width: 70%;
+    height: 95%;
+    max-width: 1080px;
+    max-height: 1920px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 60px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.question {
+    font-size: 42px;
+    margin-bottom: 80px;
+    text-align: center;
+    max-width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 40px;
+    background-color: #f7b267;
+    color: #333;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 3em;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+    width: calc(100% - 40px);
+    max-width: 600px;
+}
+
+.option:hover {
+    background-color: #f5a623;
+    transform: scale(1.05);
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+#quiz {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#start-container {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    padding: 50px 100px;
+    font-size: 3em;
+    background-color: #f7b267;
+    color: #333;
+    border: 5px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: inset 0 0 10px white;
+}
+
+#start-button:hover {
+    background-color: #f5a623;
+    transform: scale(1.05);
+}
+
+.book-image {
+    width: 200px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#book-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#home-button {
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 40px;
+    font-size: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#home-button:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 30px;
+    color: #666;
+}
+
+input {
+    width: 500px;
+    height: 80px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 28px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 20px;
+    background: white;
+    transition: border-color 0.3s;
+}
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.login-btn {
+    background: #0f65a7;
+    color: white;
+    border: none;
+    height: 70px;
+    font-weight: 600;
+    font-size: 32px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 300px;
+    margin: 20px;
+}
+
+.login-btn:hover {
+    background: #5a67d8;
+}
+
+#loginmessage {
+    margin-top: 50px;
+    font-size: 30px;
+    color: #e53e3e;
+}
+#message {
+    margin-top: 50px;
+    font-size: 30px;
+    color: #e53e3e;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex: 1;
+    /* padding-right: 60px; */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    font-size: 28px;
+    color: #666;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    color: #0f65a7;
+}
+
+.login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.login-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.login-content h2 {
+    font-size: 46px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.robot-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.robot-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.robot-content h2 {
+    font-size: 46px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.selectrobot-btn {
+    background: #0f65a7;
+    color: white;
+    border: none;
+    height: 70px;
+    font-weight: 600;
+    font-size: 32px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 300px;
+    margin: 20px;
+}
+
+.selectrobot-btn:hover {
+    background: #5a67d8;
+}

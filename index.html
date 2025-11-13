@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>おすすめの本を見つけるクイズ</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="quiz-container">
+            <div id="start-container">
+                <button id="start-button">おすすめの本を探す</button>
+                <div id="book-images">
+                    <img src="config/images/コンロ1つで自炊Lesson.jpg" alt="コンロ1つで自炊Lesson" class="book-image" />
+                    <img src="config/images/ニッポンのおみくじ.jpg" alt="ニッポンのおみくじ" class="book-image" />
+                    <img src="config/images/レフ筋トレ 最高に動ける体をつくる.jpg" alt="レフ筋トレ" class="book-image" />
+                    <img src="config/images/思わずためしてみたくなるマンガ心理学１年生.jpg" alt="マンガ心理学" class="book-image" />
+                    <img src="config/images/星をつなぐ手.jpg" alt="星をつなぐ手" class="book-image" />
+                    <img src="config/images/待ち活33.jpg" alt="待ち活/33" class="book-image" />
+                    <img src="config/images/東京タワー2.jpg" alt="東京タワー" class="book-image" />
+                    <img src="config/images/旅行が200％楽しくなる！スーツケース収納術.jpg" alt="スーツケース収納術" class="book-image" />
+                </div>
+            </div>
+            <div id="quiz" style="display: none">
+                <div class="question" id="question"></div>
+                <div id="options"></div>
+                <div class="navigation-buttons">
+                    <button class="nav-button" id="home-button">ホーム</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="robotPopup" class="robot-popup">
+            <div class="robot-content">
+                <h2>ロボットを選択</h2>
+                <div class="input-group">
+                    <label for="robot-select">ロボット</label>
+                    <select id="robot-select" name="robot">
+                        <option value="">選択してください</option>
+                    </select>
+                </div>
+                <button id="select-btn" class="selectrobot-btn">選択</button>
+                <p id="message"></p>
+            </div>
+        </div>
+        <div id="loginPopup" class="login-popup">
+            <div class="login-content">
+                <h2>ログイン</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="username">ユーザーID</label>
+                        <input id="username" required oninvalid="this.setCustomValidity('ユーザーIDを入力してください')" oninput="this.setCustomValidity('')" />
+                        <!-- <input type="text" id="username" name="username" required /> -->
+                    </div>
+                    <div class="input-group password-group">
+                        <label for="password">パスワード</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" required />
+                            <span id="togglePassword" class="toggle-password">
+                                <i class="fa-solid fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn">ログイン</button>
+                </form>
+                <p id="loginmessage"></p>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

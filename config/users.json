@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "username": "mi-terauchi@exedy.com",
+            "password": "miyu08711",
+            "robots": [{ "id": "multi2" }, { "id": "multi4" }, { "id": "SR05_2502110006" }]
+        },
+        {
+            "username": "exedy",
+            "password": "exedy_admin",
+            "robots": [{ "id": "multi2" }, { "id": "SR05_2502110006" }]
+        },
+        {
+            "username": "1111",
+            "password": "1111",
+            "robots": [{ "id": "multi2" }, { "id": "SR05_2502110006" }]
+        }
+    ]
+}
