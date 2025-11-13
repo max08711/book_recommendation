@@ -2,6 +2,9 @@
 const audioBasePath = "config/mp3/";
 const imageBasePath = "config/images/";
 
+const quizElement = document.getElementById("quiz");
+const quizInitialHTML = quizElement ? quizElement.innerHTML : "";
+
 const validUsers = [
     {
         username: "mi-terauchi@exedy.com",
@@ -139,8 +142,11 @@ document.getElementById("start-button").onclick = function () {
 };
 
 // ホームボタン（クイズ画面時）
+// document.getElementById("home-button").onclick = function () {
+//     location.reload();
+// };
 document.getElementById("home-button").onclick = function () {
-    location.reload();
+    resetToHome();
 };
 
 // 質問表示
@@ -189,8 +195,11 @@ function displayRecommendation(recommendation) {
         </div>
     `;
 
+    // document.getElementById("home-button").onclick = function () {
+    //     playAudio(audioFiles.selectOption, () => location.reload());
+    // };
     document.getElementById("home-button").onclick = function () {
-        playAudio(audioFiles.selectOption, () => location.reload());
+        playAudio(audioFiles.selectOption, () => resetToHome());
     };
 
     // 最後のページで「ジャジャーン.mp3」を再生した後、本に応じた音声を再生
@@ -351,4 +360,57 @@ function showRobotPopupForUser(user) {
     });
 
     robotPopup.style.display = "flex";
+}
+
+// ホーム画面に戻す共通処理
+// ホーム画面に戻す共通処理
+function resetToHome() {
+    const startContainer = document.getElementById("start-container");
+    const quiz = document.getElementById("quiz");
+    const loginPopup = document.getElementById("loginPopup");
+    const robotPopup = document.getElementById("robotPopup");
+    const loginmessage = document.getElementById("loginmessage");
+    const robotMessage = document.getElementById("message");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const robotSelect = document.getElementById("robot-select");
+    const togglePassword = document.getElementById("togglePassword");
+
+    // ★クイズ領域の中身を初期状態に戻す
+    if (quiz && typeof quizInitialHTML === "string") {
+        quiz.innerHTML = quizInitialHTML;
+
+        // 復元した #home-button に再度イベントを付け直す
+        const homeBtn = document.getElementById("home-button");
+        if (homeBtn) {
+            homeBtn.onclick = function () {
+                resetToHome();
+            };
+        }
+    }
+
+    // 画面の表示を初期化
+    if (quiz) quiz.style.display = "none";
+    if (startContainer) startContainer.style.display = "flex";
+
+    // ポップアップを閉じる
+    if (loginPopup) loginPopup.style.display = "none";
+    if (robotPopup) robotPopup.style.display = "none";
+
+    // メッセージ類を消す
+    if (loginmessage) loginmessage.textContent = "";
+    if (robotMessage) robotMessage.textContent = "";
+
+    // 入力欄リセット
+    if (usernameInput) usernameInput.value = "";
+    if (passwordInput) {
+        passwordInput.value = "";
+        passwordInput.setAttribute("type", "password"); // パスワード表示状態をリセット
+    }
+    if (robotSelect) robotSelect.value = "";
+
+    // 目アイコンもリセット
+    if (togglePassword) {
+        togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
 }
